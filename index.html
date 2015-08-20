@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  	<title>MockupWebView</title>
-  	<link href="css/styles.css" rel="stylesheet">
-  </head>
-  
-  <body>
-  </body>
+<html lang="en,ru" ng-app="mwvApp">
+	<head ng-controller="projectRoot">
+		<meta charset="utf-8">
+		<title>{{rootTitle}}</title>
 
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+		<link rel="icon" type="image/x-icon" href="{{rootIcon}}">
+
+		<link href="css/app.css" rel="stylesheet">
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/angular-animate.min.js"></script>
+		<script src="js/app-min.js"></script>
+	</head>
+
+	<body>
+		<div ng-view></div>
+
+	</body>
 </html>

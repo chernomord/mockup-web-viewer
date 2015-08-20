@@ -1,0 +1,46 @@
+{	
+	"projectName"	: "Имя проекта", 
+	"projectSubline": "My project subline text",
+	"projectIcon"	: "i/icon.png",
+	"mockupGroups": [
+
+		{	"groupTitle" 	: "Моя группа",
+			"groupSubTitle" : "My Group Subtitle",
+			"mockups": [
+				{	
+					"name": "Олень",
+			    	"file": "mockups/example02.gif"
+			    },
+			    {
+			    	"name": "Example 02",
+			    	"file": "mockups/example02.gif"
+			    },
+			    {
+			    	"name": "Example 03",
+			    	"file": "mockups/example03.gif"
+			    },
+			    {
+			    	"name": "Example 04",
+			    	"file": "mockups/example04.gif"
+			    },
+			    {
+			    	"name": "Мой какой нибудь макет",
+			    	"file": "mockups/example02.gif"
+			    }
+			]
+		},
+		{	"groupTitle" 	: "Another group",
+			"groupSubTitle" : "",
+			"mockups": [
+				{	
+					"name": "Example 01",
+			    	"file": "mockups/example01.gif"
+			    },
+			    {
+			    	"name": "Example 02",
+			    	"file": "mockups/example02.gif"
+			    }
+			]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+	<header>
+		<div class="container">
+			<div>
+			<h1>{{projectName}}</h1>
+			<h2>{{projectSubline}}</h2></div>
+		</div>
+	</header>
+
+	<section>
+
+		<div class="container" ng-repeat="group in mygroups">
+			<h1>{{group.groupTitle}}</h1>
+			<ul>
+				<li ng-repeat="mockup in group.mockups">
+					<a href="#/mockups/{{mockup.name}}?
+					gr={{mygroups.indexOf(group)}}&
+					it={{group.mockups.indexOf(mockup)}}">{{mockup.name}}</a>
+				</li>
+			</ul>
+		</div>
+
+	</section>

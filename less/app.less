@@ -1,0 +1,51 @@
+@import "normalize.less";
+@import "variables.less";
+
+
+html {font-size:62.5%}
+
+body {
+	font-size: 1.5em;
+	line-height: 1;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+section, header{ overflow: hidden;}
+
+.container {
+	width: @column-lg;
+	box-sizing: content-box;
+	margin: 0 auto;
+  	padding: 0px;
+}
+
+.col {
+	display: inline-block;
+}
+
+header {
+	background-color: gray;
+	color:white; 
+}
+
+
+header.mockup {
+	background-color: black;
+	color: white;
+	height: 50px;
+	padding: 5px 0px;
+	box-sizing: border-box;
+}
+
+div.mockup {
+	width: 100%;
+	height: 100px;
+	background-position: top;
+	background-repeat: no-repeat;
+
+}
+
+.mockup-view {
+	overflow: scroll;
+	height: 100%;
+}
