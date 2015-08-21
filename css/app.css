@@ -183,6 +183,7 @@ body {
   font-size: 1.5em;
   line-height: 1;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 section,
 header {
@@ -204,19 +205,21 @@ header {
 header.mockup {
   background-color: black;
   color: white;
-  height: 50px;
+  height: 40px;
   padding: 5px 0px;
   box-sizing: border-box;
 }
 div.mockup {
   width: 100%;
-  height: 100px;
   background-position: top;
   background-repeat: no-repeat;
+  -webkit-transition: all 2s;
+          transition: all 2s;
 }
 .mockup-view {
-  overflow: scroll;
-  height: 100%;
+  overflow-y: scroll;
+  height: 500px;
+  background-color: gray;
 }
 
 /*# sourceMappingURL=app.css.map */

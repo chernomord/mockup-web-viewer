@@ -5,6 +5,15 @@
 	</div>
 </header>
 
-<section class="mockup-view">
-<div class="mockup" style="height:1500px;background-image:url({{mockupFile}});"></div>
+<section class="mockup-view" resize 
+	ng-style="resizeWithOffset(40)"
+	notifier="notifyServiceOnChage(params)">
+
+	<div 
+		class="mockup" 
+		style="background-image:url({{mockupFile}});"
+		ng-style=" myprop() "
+		>
+	</div>
+
 </section>
