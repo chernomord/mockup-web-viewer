@@ -2,15 +2,20 @@
 @import "variables.less";
 
 
-html {font-size:62.5%}
+html {font-size:62.5%; }
 
 body {
 	font-size: 1.5em;
 	line-height: 1;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-weight: 500;
+	color: @text-gray;
+	position: relative;
 }
 
+h1, h2, h3 {
+	font-weight: 500;
+}
 section, header{ overflow: hidden;}
 
 .container {
@@ -22,17 +27,30 @@ section, header{ overflow: hidden;}
 
 .col {
 	display: inline-block;
+	margin-right: 15px;
 }
 
 header {
-	background-color: gray;
-	color:white; 
+	background-color: @headersBG;
+	color:@text-gray; 
+	padding: 10px 0px;
+
+}
+header h1 {font-size: 3rem; margin-bottom: .5rem;}
+header 	h2 {font-size: 1.8rem; margin-top: .5rem; }
+
+section h1 {font-size: 1.4em; margin-top: 2rem;}
+
+ul li {
+	margin-top: 1rem;
+	font-size: 1.4rem;
 }
 
-
 header.mockup {
-	background-color: black;
-	color: white;
+	background-color: @headersBG;
+	font-size: 1.8rem;
+	line-height: 30px;
+	color: @text-gray;
 	height: 40px;
 	padding: 5px 0px;
 	box-sizing: border-box;
@@ -41,13 +59,116 @@ header.mockup {
 div.mockup {
 	width: 100%;
 	background-position: top;
+	height: 0px;
+	opacity: 0;
 	background-repeat: no-repeat;
-	transition: all 2s;
+	transition: opacity .3s;
+	transition-timing-function: ease-in;
 
-}
+} 
 
 .mockup-view {
 	overflow-y: scroll;
-	height: 500px;
-	background-color:gray;
+	height: 1000px;
+	background-color: @headersBG;
 }
+
+.btn {
+	position: relative;
+	text-decoration: none;
+	color: @text-gray;
+	font-size: 1.8rem;
+	padding: 2px;
+	box-sizing: border-box;
+	border: 1px solid transparent;
+}
+.btn:hover { text-decoration: none;	border: 1px solid @text-gray; }
+
+.btn.back {	
+	color: @btn-blue; font-weight: 800; opacity: .7;
+	transition: all .2s;
+	left:0px;
+	img {
+		margin-right: 10px;
+		position: relative;
+		top: 2px;
+		opacity: .7; transition: all .2s;
+	}
+}
+.btn.back:hover {	
+	color: @btn-blue; 
+	font-weight: 800;
+	border: 1px solid transparent;
+	opacity: 1;
+	left: -5px;
+	img {opacity: 1; }
+}
+
+
+
+
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}*/
+
+/* 
+Animations
+============*/
+
+
+.view-frame.ng-enter, .view-frame.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+.view-frame.ng-enter {
+  animation: 0.2s fade-in;
+  z-index: 100;
+}
+
+.view-frame.ng-leave {
+  animation: 0.2s fade-out;
+  z-index:99;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; left:0px; transform:scale(0.95,0.95);}
+  to   { opacity: 1; left:0px; transform:scale(1,1);}
+}
+
+
+@keyframes fade-out {
+  from { opacity: 1; left:0px; transform:scale(1,1);}
+  to   { opacity: 0; left:0px; transform:scale(1,1);}
+}
+
+
+/*
+Preloader
+===============*/
+
+div.preloader {
+	position: absolute;
+	width: 100%;
+	z-index: 110;
+}
+
+div.preloader span {
+	display: block;
+	content: "";
+	opacity: 1;
+	background-color: red;
+	width: 0%;
+	height: 2px;
+	transition: all 15s ease-in;
+}
+
+div.preloader.empty span { width: 0%; opacity: 1; transition: all 15s ease-in;}
+
+div.preloader.loading span { width: 100%; opacity: 1; transition: all 15s ease-in;}
+
+div.preloader.loaded span { width: 100%; opacity: 0; transition: all .01s ease-in; }
+
