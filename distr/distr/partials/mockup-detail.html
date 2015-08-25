@@ -1,0 +1,22 @@
+<header class="mockup">
+	<div class="container">
+		<div class="col">
+			<a href="#/mockups" class="btn back"><img ng-src="i/mwv_btn-back.svg" height="16px">back</a>
+		</div>
+		<div class="col" ng-bind="mockupName">
+		</div>
+	</div>
+</header>
+
+<section class="mockup-view" resize 
+	ng-style="resizeWithOffset(40)"
+	notifier="notifyServiceOnChage(params)">
+	<div class="preloader" ng-class="{'empty': imgEmpty, 'loading': imgLoading, 'loaded': imgLoaded}"><span></span></div>
+	<div 
+		class="mockup" 
+		style="background-image:url({{mockupSrc}});"
+		ng-style=" getImgH() "
+		>
+	</div>
+
+</section>

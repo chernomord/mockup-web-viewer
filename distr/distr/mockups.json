@@ -1,47 +1,47 @@
 {	
-	"projectName"	: "My Project Name", 
-	"projectSubline": "Easy to use — just copy distr folder, edit json file and upload on to your website",
+	"projectName"	: "Имя проекта", 
+	"projectSubline": "My project subline text",
 	"projectIcon"	: "i/mwv-logo.png",
 	"mockupGroups": [
 
-		{	"groupTitle" 	: "First group of mockups",
+		{	"groupTitle" 	: "Первая группа",
 			"groupSubTitle" : "My Group Subtitle",
 			"mockups": [
 				{	
-					"name": "Eelk mockup",
+					"name": "Олень",
 			    	"file": "mockups/example02.gif"
 			    },
 			    {
-			    	"name": "Another eelk mockup",
+			    	"name": "Example 02",
 			    	"file": "mockups/example02.gif"
 			    },
 			    {
-			    	"name": "Little pigeon",
+			    	"name": "Example 03",
 			    	"file": "mockups/example03.gif"
 			    },
 			    {
-			    	"name": "Some fourth example",
+			    	"name": "Example 04",
 			    	"file": "mockups/example04.gif"
 			    },
 			    {
-			    	"name": "Just remember:",
+			    	"name": "One of my others mockups here",
 			    	"file": "mockups/example02.gif"
 			    },
 			    {
-			    	"name": "To edit the list and links look for mockup.json file",
+			    	"name": "еще один макет",
 			    	"file": "mockups/example04.gif"
 			    }			    
 			]
 		},
-		{	"groupTitle" 	: "And you can add another mockup set",
+		{	"groupTitle" 	: "Some other set",
 			"groupSubTitle" : "",
 			"mockups": [
 				{	
-					"name": "And more mockups too",
+					"name": "Example 01",
 			    	"file": "mockups/example01.gif"
 			    },
 			    {
-			    	"name": "Got it?",
+			    	"name": "Example 02",
 			    	"file": "mockups/example02.gif"
 			    }
 			]
