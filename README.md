@@ -27,7 +27,11 @@ AngularJS was used to do the most heavy lifting.
 
 [Demo](http://tests.candyface.ru/mwv).
 
+## Versions
 
+### alpha 0.01
+
+- just basic functionality.
 
 
 <!-- ## Documentation
@@ -39,7 +43,7 @@ Documentation is available on the
 
 The MIT License
 
-Copyright (c) 2010-2015 Google, Inc. http://angularjs.org
+Copyright (c) 2015 Slava Komarov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
