@@ -244,11 +244,14 @@ header.mockup {
 div.mockup {
   width: 100%;
   background-position: top;
-  height: 0px;
+  height: 0;
   opacity: 0;
   background-repeat: no-repeat;
   transition: opacity .3s;
   transition-timing-function: ease-in;
+}
+div.mockup.phone {
+  background-size: contain;
 }
 .mockup-view {
   overflow-y: scroll;

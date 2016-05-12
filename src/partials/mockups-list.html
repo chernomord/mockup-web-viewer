@@ -1,21 +1,20 @@
-
 <header>
 	<div class="container">
 		<div class="col"><img ng-src="{{logo}}" height="45px" ng-show="logo" class="logo"></div>
 		<div class="col">
-		<h1 ng-bind="projectName"></h1>
-		<h2 ng-bind="projectSubline"></h2>
+			<h1 ng-bind="projectName"></h1>
+			<h2 ng-bind="projectSubline"></h2>
 		</div>
+	</div>
 </header>
 
 <section>
-
-	<div class="container" ng-repeat="group in mygroups" class="mockupList">
+	<div class="container mockupList" ng-repeat="group in mygroups">
 		<h1 ng-bind="group.groupTitle"></h1>
+		<p ng-bind="group.groupSubTitle"></p>
 		<ul>
-			<li ng-repeat="mockup in group.mockups" class="mockupList"
-				>
-				<a href="#/mockups/{{mockup.name}}?
+			<li ng-repeat="mockup in group.mockups" class="mockupList">
+				<a ng-href="#/mockups/mockup?
 					gr={{mygroups.indexOf(group)}}&
 					it={{group.mockups.indexOf(mockup)}}"
 					ng-bind="mockup.name"
@@ -23,5 +22,4 @@
 			</li>
 		</ul>
 	</div>
-
 </section>

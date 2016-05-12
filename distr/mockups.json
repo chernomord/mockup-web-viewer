@@ -15,7 +15,7 @@
 			    {
 					"media": "phone",
 					"name": "Another eelk mockup",
-			    	"file": "mockups/example05.gif"
+			    	"file": "mockups/example05.jpg"
 			    },
 			    {
 					"media": "desktop",
@@ -49,7 +49,7 @@
 			    },
 			    {
 					"media": "desktop",
-					"name": "Got it?",
+					"name": "Got it",
 			    	"file": "mockups/example02.gif"
 			    }
 			]

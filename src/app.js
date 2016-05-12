@@ -1,86 +1,100 @@
-
-var mwvApp = angular.module("mwvApp", ['ngAnimate','ngRoute']);
+var mwvApp = angular.module("mwvApp", ['ngAnimate', 'ngRoute']);
 
 mwvApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/mockups', {
-        templateUrl: 'partials/mockups-list.html',
-        controller: 'project'
-      }).
-      when('/mockups/:mockupName', {
-        templateUrl: 'partials/mockup-detail.html',
-        controller: 'projectMockup'
-      }).
-      otherwise({
-        redirectTo: '/mockups'
-      });
-  }]);
+    function ($routeProvider) {
+        $routeProvider.when('/mockups', {
+            templateUrl: 'partials/mockups-list.html',
+            controller: 'project'
+        })
+            .when('/mockups/:mockupName', {
+                templateUrl: 'partials/mockup-detail.html',
+                controller: 'projectMockup',
+                controllerAs: 'vm'
+            })
+            .otherwise({
+                redirectTo: '/mockups'
+            });
+    }]);
 
 
-mwvApp.factory('dataLoader', function($http) {
-  var promise = null;
-  return { 
-    mockupsData: function() {
-      if (promise) {
-        return promise;
-      } else {
-        promise = $http.get('mockups.json', [cache=true]);
-        return promise;
-      }
+mwvApp.factory('dataLoader', function ($http) {
+    var promise = null;
+    return {
+        mockupsData: function () {
+            if (promise) {
+                return promise;
+            } else {
+                promise = $http.get('mockups.json?' + Math.random(), [cache = true]);
+                return promise;
+            }
+        }
     }
-  }
 });
 
-mwvApp.controller('projectRoot', function($rootScope, $scope, dataLoader) {
-
-	dataLoader.mockupsData().success(function(data) { 
-    
-		$scope.rootTitle = data.projectName;
-		$scope.rootIcon = data.projectIcon;
-	});
-
-});
-
-mwvApp.controller('project', function($rootScope, $scope, dataLoader) {
-	dataLoader.mockupsData().success(function(data) { 
-    $scope.logo = data.projectIcon;
-		$scope.projectName = data.projectName; 
-		$scope.projectSubline = data.projectSubline;
-		$scope.mygroups = data.mockupGroups;
-	});
-
-});
-
-mwvApp.controller('projectMockup', ['$scope', '$routeParams', '$timeout', 'dataLoader', 
-  function($scope, $routeParams, $timeout, dataLoader) {
-    
-    $scope.mockupO=0;
-    $scope.imgEmpty= true;
-    $scope.imgLoaded = false;
-    $scope.imgLoading = false;
-    $timeout(function(){ $scope.imgEmpty= false; $scope.imgLoading = true; }, 10); 
+mwvApp.controller('projectRoot', function ($rootScope, $scope, dataLoader) {
 
     dataLoader.mockupsData().success(function (data) {
-      $scope.mockupSrc = 
-        data.mockupGroups[$routeParams.gr].mockups[$routeParams.it].file; 
-      image = new Image();
-      image.src = $scope.mockupSrc;
-     
-      $scope.getImgH = function() {
-        return { height: $scope.mockupH + 'px', opacity: $scope.mockupO };
-      };
 
-      image.onload = function() {
-        $scope.mockupH = image.naturalHeight; 
-        $scope.mockupO = 1;
-        $scope.imgLoading = false; $scope.imgLoaded = true;
-        $scope.$apply();
-      };
-
+        $scope.rootTitle = data.projectName;
+        $scope.rootIcon = data.projectIcon;
     });
-    $scope.mockupName = $routeParams.mockupName;
-}]);
+
+});
+
+mwvApp.controller('project', function ($rootScope, $scope, dataLoader) {
+    dataLoader.mockupsData().success(function (data) {
+        $scope.logo = data.projectIcon;
+        $scope.projectName = data.projectName;
+        $scope.projectSubline = data.projectSubline;
+        $scope.mygroups = data.mockupGroups;
+    });
+
+});
+
+var projectMockup = function ($scope, $routeParams, $timeout, dataLoader) {
+
+    var vm = this;
+
+    vm.mockupO = 0;
+    vm.imgEmpty = true;
+    vm.imgLoaded = false;
+    vm.imgLoading = false;
+    $timeout(function () {
+        vm.imgEmpty = false;
+        vm.imgLoading = true;
+    }, 10);
+
+    dataLoader.mockupsData().success(function (data) {
+
+        vm.mockup = data.mockupGroups[$routeParams.gr].mockups[$routeParams.it];
+
+        var image = new Image();
+        image.src = vm.mockup.file;
+        image.onload = function () {
+            var wW = window.innerWidth;
+            if ( (vm.mockup.media == 'phone') && (wW < image.naturalWidth)) {
+
+                vm.mockupH = image.naturalHeight * wW/image.naturalWidth;
+            }
+            else {
+                vm.mockupH = image.naturalHeight;
+            }
+            vm.mockupO = 1;
+            vm.imgLoading = false;
+            vm.imgLoaded = true;
+            $scope.$apply();
+        };
+    });
+
+};
+
+projectMockup.prototype.getImgH = function () {
+    var vm = this;
+    return {height: vm.mockupH + 'px', opacity: vm.mockupO};
+};
+
+projectMockup.$inject = ['$scope', '$routeParams', '$timeout', 'dataLoader'];
+mwvApp.controller('projectMockup', projectMockup);
 
 
 mwvApp.directive('resize', function ($window) {
@@ -89,17 +103,14 @@ mwvApp.directive('resize', function ($window) {
         var w = angular.element($window);
         scope.$watch(function () {
             return {
-                'h': window.innerHeight, 
+                'h': window.innerHeight,
                 'w': window.innerWidth
             };
         }, function (newValue, oldValue) {
-            /*console.log(newValue, oldValue);*/
-            scope.windowHeight = newValue.h;
-            scope.windowWidth = newValue.w;
 
             scope.resizeWithOffset = function (offsetH) {
-                scope.$eval(attr.notifier);
-                return { 
+                // scope.$eval(attr.notifier);
+                return {
                     'height': (newValue.h - offsetH) + 'px'
                 };
             };
