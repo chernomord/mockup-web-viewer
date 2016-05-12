@@ -1,5 +1,5 @@
 
-var mwvApp = new angular.module("mwvApp", ['ngAnimate','ngRoute']);
+var mwvApp = angular.module("mwvApp", ['ngAnimate','ngRoute']);
 
 mwvApp.config(['$routeProvider',
   function($routeProvider) {
@@ -23,8 +23,6 @@ mwvApp.factory('dataLoader', function($http) {
   return { 
     mockupsData: function() {
       if (promise) {
-        // If we've already asked for this data once,
-        // return the promise that already exists.
         return promise;
       } else {
         promise = $http.get('mockups.json', [cache=true]);
@@ -33,8 +31,6 @@ mwvApp.factory('dataLoader', function($http) {
     }
   }
 });
-
-
 
 mwvApp.controller('projectRoot', function($rootScope, $scope, dataLoader) {
 
@@ -115,5 +111,4 @@ mwvApp.directive('resize', function ($window) {
         });
     }
 }); 
-
 

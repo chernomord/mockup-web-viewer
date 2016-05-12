@@ -1,0 +1,22 @@
+{
+  "name": "mockup-web-viewer",
+  "description": "The main goal of this software is to provide myself and anyone else interested with the ability to present website graphic mockups to the client via url link. So at most cases it is supposed to male life of web designer little bit easier.",
+  "main": "app.js",
+  "authors": [
+    "Slava"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.5.5",
+    "angular-route": "^1.5.5"
+  }
+}

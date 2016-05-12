@@ -7,28 +7,34 @@
 		{	"groupTitle" 	: "First group of mockups",
 			"groupSubTitle" : "My Group Subtitle",
 			"mockups": [
-				{	
+				{
+					"media": "desktop",
 					"name": "Eelk mockup",
 			    	"file": "mockups/example02.gif"
 			    },
 			    {
-			    	"name": "Another eelk mockup",
-			    	"file": "mockups/example02.gif"
+					"media": "phone",
+					"name": "Another eelk mockup",
+			    	"file": "mockups/example05.gif"
 			    },
 			    {
-			    	"name": "Little pigeon",
+					"media": "desktop",
+					"name": "Little pigeon",
 			    	"file": "mockups/example03.gif"
 			    },
 			    {
-			    	"name": "Some fourth example",
+					"media": "desktop",
+					"name": "Some fourth example",
 			    	"file": "mockups/example04.gif"
 			    },
 			    {
-			    	"name": "Just remember:",
+					"media": "desktop",
+					"name": "Just remember:",
 			    	"file": "mockups/example02.gif"
 			    },
 			    {
-			    	"name": "To edit the list and links look for mockup.json file",
+					"media": "desktop",
+					"name": "To edit the list and links look for mockup.json file",
 			    	"file": "mockups/example04.gif"
 			    }			    
 			]
@@ -36,12 +42,14 @@
 		{	"groupTitle" 	: "And you can add another mockup set",
 			"groupSubTitle" : "",
 			"mockups": [
-				{	
+				{
+					"media": "desktop",
 					"name": "And more mockups too",
 			    	"file": "mockups/example01.gif"
 			    },
 			    {
-			    	"name": "Got it?",
+					"media": "desktop",
+					"name": "Got it?",
 			    	"file": "mockups/example02.gif"
 			    }
 			]
